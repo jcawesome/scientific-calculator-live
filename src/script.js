@@ -13,9 +13,9 @@
                     .replace("%","*0.01")
                     .replace("sin","Math.sin")
                     .replace("cos","Math.cos")
-                    .replace("ln","Math.log")
-                    .replace("π","Math.pi")
                     .replace("log","Math.log10")
+                    .replace("ln","Math.log")
+                    .replace("π","Math.PI")
                     .replace("e","Math.E")
                     .replace("tan","Math.tan")
                     .replace("sqrt","Math.sqrt")
@@ -51,9 +51,5 @@
                     
                 })
             }
-
-            buttons[0].addEventListener('click', function () {
-                console.log('first button clicked');
-            })
         });
   
