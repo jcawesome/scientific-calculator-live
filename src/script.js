@@ -11,6 +11,14 @@
                     .replace("×","*")
                     .replace("÷","/")
                     .replace("%","*0.01")
+                    .replace("sin","Math.sin")
+                    .replace("cos","Math.cos")
+                    .replace("ln","Math.log")
+                    .replace("π","Math.pi")
+                    .replace("log","Math.log10")
+                    .replace("e","Math.E")
+                    .replace("tan","Math.tan")
+                    .replace("sqrt","Math.sqrt")
 
                 const result = eval(convertedValue)
                 currentValue = result.toString()
@@ -22,17 +30,25 @@
                 button.addEventListener('click', function () {
                     const value = button.innerText;
 
-                    if (value == "AC") {
-                        currentValue="";
+                    try{
+                        if (value == "AC") {
+                            currentValue="";
+                            display.value = currentValue;
+                        } else if(value=="="){
+                            evaluateResult();
+                        }
+                        else {
+                        
+                            currentValue += value;
+                            display.value = currentValue;
+                        }
+                    } catch (error){
+                        console.error(error);
+                        currentValue = "ERROR";
                         display.value = currentValue;
-                    } else if(value=="="){
-                        evaluateResult();
                     }
-                    else {
+
                     
-                        currentValue += value;
-                        display.value = currentValue;
-                    }
                 })
             }
 
