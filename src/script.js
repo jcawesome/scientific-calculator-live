@@ -10,12 +10,14 @@ function toggleInverseMode() {
       document.getElementById("sin-btn").innerHTML = "sin<sup>-1</sup>";
       document.getElementById("cos-btn").innerHTML = "cos<sup>-1</sup>";
       document.getElementById("tan-btn").innerHTML = "tan<sup>-1</sup>";
+      document.getElementById("ans-btn").innerHTML = "RND";
     } else {
       inverseBtn.classList.add("btn-secondary");
       inverseBtn.classList.remove("btn-primary");
       document.getElementById("sin-btn").innerHTML = "sin";
       document.getElementById("cos-btn").innerHTML = "cos";
       document.getElementById("tan-btn").innerHTML = "tan";
+      document.getElementById("ans-btn").innerHTML = "ANS";
     }
   }
 
@@ -59,6 +61,7 @@ document.addEventListener('DOMContentLoaded', function () {
             .replace("e","Math.E")           
             .replace("√","Math.sqrt")
             .replace("ANS",ANS)
+            .replace("RND","(Math.random() * (1 - 0) + 0).toFixed(6)")
             .replace(/(\d+)!/g, (match, num) => xFact(num))
             .replace(/(\d+)EXP(\d+)/g, (match, base, exponent) => `${base} * 10**${exponent}`)
         
@@ -100,7 +103,10 @@ document.addEventListener('DOMContentLoaded', function () {
                 } else if(value=="x!"){
                     currentValue += "!";
                     display.value = currentValue;
-                } else if(value=="="){
+                } else if(value=="="|value=="RND"){
+                    if(value=="RND"){
+                        currentValue += value;
+                    }
                     evaluateResult();
                     display.value=currentValue
                     ANS = currentValue;
