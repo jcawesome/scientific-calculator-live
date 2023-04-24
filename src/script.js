@@ -1,5 +1,5 @@
 var inverseMode = false;
-console.log("inverseMode:", inverseMode);
+// console.log("inverseMode:", inverseMode);
 
 function toggleInverseMode() {
     inverseMode = !inverseMode;
@@ -49,8 +49,8 @@ document.addEventListener('DOMContentLoaded', function () {
     let char = "";
 
     function evaluateResult() {
-        console.log("currentValue:", currentValue)
-        console.log("ANS:", ANS)
+        // console.log("currentValue:", currentValue)
+        // console.log("ANS:", ANS)
         const convertedValue = currentValue
             .replace("×", "*")
             .replace("÷", "/")
@@ -74,7 +74,7 @@ document.addEventListener('DOMContentLoaded', function () {
             .replace(/(\d+)!/g, (match, num) => xFact(num))
             .replace(/(\d+)EXP(\d+)/g, (match, base, exponent) => `${base} * 10**${exponent}`)
 
-        console.log("convertedValue:", convertedValue)
+        // console.log("convertedValue:", convertedValue)
 
         const result = eval(convertedValue);
         currentValue = result.toString();
@@ -86,13 +86,12 @@ document.addEventListener('DOMContentLoaded', function () {
         button.addEventListener('click', function () {
             const value = button.innerText;
 
-            console.log("button value:", value)
+            // console.log("button value:", value)
             try {
                 if (value == "AC") {
                     currentValue = "";
                     display.value = currentValue;
                 } else if (value == "Inv") {
-                    console.log("Inverse Buttons")
                     toggleInverseMode();
                 } else if (value == "ANS") {
                     currentValue += "ANS";
@@ -117,14 +116,14 @@ document.addEventListener('DOMContentLoaded', function () {
                         currentValue += value;
                     }
                     expression = currentValue;
-                    console.log("expression:", expression)
+                    // console.log("expression:", expression)
                     evaluateResult();
                     display.value = currentValue
                     ANS = currentValue;
-                    console.log("ANS:", ANS)
+                    // console.log("ANS:", ANS)
                     var histString = expression + " = " + ANS;
                     addToHistory(histString)
-                    console.log("histString:", histString)
+                    // console.log("histString:", histString)
                 }
                 else {
 
