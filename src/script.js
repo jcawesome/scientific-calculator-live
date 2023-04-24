@@ -42,13 +42,15 @@ document.addEventListener('DOMContentLoaded', function () {
             .replace("×","*")
             .replace("÷","/")
             .replace("%","*0.01")
-            .replace("sin","Math.sin")
+            .replace(/\barcsin\b|sin/g, function(match) {
+                return (match === "sin") ? "Math.sin" : "Math.asin";
+              })
             .replace("cos","Math.cos")
+            .replace("tan","Math.tan")
             .replace("log","Math.log10")
             .replace("ln","Math.log")
             .replace("π","Math.PI")
-            .replace("e","Math.E")
-            .replace("tan","Math.tan")
+            .replace("e","Math.E")           
             .replace("√","Math.sqrt")
             .replace("ANS",ANS)
             .replace(/(\d+)!/g, (match, num) => xFact(num))
@@ -76,6 +78,9 @@ document.addEventListener('DOMContentLoaded', function () {
                     toggleInverseMode();
                 } else if(value=="ANS"){
                     currentValue += "ANS";
+                    display.value = currentValue;
+                } else if(value=="sin-1"){
+                    currentValue += `arcsin`;
                     display.value = currentValue;
                 } else if(value=="xy"){
                     currentValue += `**`;
