@@ -1,0 +1,10 @@
+.btn-secondary {
+    color: black;
+    background-color: lightgray;
+  }
+
+sup {
+  font-size: 0.8em;
+  vertical-align: super;
+  font-family: 'Arial Unicode MS', sans-serif;
+}
