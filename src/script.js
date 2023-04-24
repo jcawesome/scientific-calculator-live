@@ -7,13 +7,15 @@ function toggleInverseMode() {
     if (inverseMode) {
       inverseBtn.classList.add("btn-primary");
       inverseBtn.classList.remove("btn-secondary");
-    //   inverseBtn.innerHTML = "INV (on)";
       document.getElementById("sin-btn").innerHTML = "sin<sup>-1</sup>";
+      document.getElementById("cos-btn").innerHTML = "cos<sup>-1</sup>";
+      document.getElementById("tan-btn").innerHTML = "tan<sup>-1</sup>";
     } else {
       inverseBtn.classList.add("btn-secondary");
       inverseBtn.classList.remove("btn-primary");
-    //   inverseBtn.innerHTML = "INV (off)";
       document.getElementById("sin-btn").innerHTML = "sin";
+      document.getElementById("cos-btn").innerHTML = "cos";
+      document.getElementById("tan-btn").innerHTML = "tan";
     }
   }
 
@@ -45,8 +47,12 @@ document.addEventListener('DOMContentLoaded', function () {
             .replace(/\barcsin\b|sin/g, function(match) {
                 return (match === "sin") ? "Math.sin" : "Math.asin";
               })
-            .replace("cos","Math.cos")
-            .replace("tan","Math.tan")
+            .replace(/\barccos\b|cos/g, function(match) {
+                return (match === "cos") ? "Math.cos" : "Math.acos";
+              })
+            .replace(/\barctan\b|tan/g, function(match) {
+                return (match === "tan") ? "Math.tan" : "Math.atan";
+              })
             .replace("log","Math.log10")
             .replace("ln","Math.log")
             .replace("π","Math.PI")
@@ -81,6 +87,12 @@ document.addEventListener('DOMContentLoaded', function () {
                     display.value = currentValue;
                 } else if(value=="sin-1"){
                     currentValue += `arcsin`;
+                    display.value = currentValue;
+                } else if(value=="cos-1"){
+                    currentValue += `arccos`;
+                    display.value = currentValue;
+                } else if(value=="tan-1"){
+                    currentValue += `arctan`;
                     display.value = currentValue;
                 } else if(value=="xy"){
                     currentValue += `**`;
