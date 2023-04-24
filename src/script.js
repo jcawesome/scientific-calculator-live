@@ -79,7 +79,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
             console.log("button value:",value)
             try{
-                if (value == "CE") {
+                if (value == "AC") {
                     currentValue="";
                     display.value = currentValue;
                 } else if(value=="Inv"){
