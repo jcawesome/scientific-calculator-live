@@ -76,6 +76,10 @@ function toggleInverseMode() {
         document.getElementById("cos-btn").innerHTML = "cos<sup>-1</sup>";
         document.getElementById("tan-btn").innerHTML = "tan<sup>-1</sup>";
         document.getElementById("ans-btn").innerHTML = "RND";
+        document.getElementById("ln-btn").innerHTML = "e<sup>x</sup>";
+        document.getElementById("log-btn").innerHTML = "10<sup>x</sup>";
+        document.getElementById("sqrt-btn").innerHTML = "x<sup>2</sup>";
+        document.getElementById("xy-btn").innerHTML = "<sup>y</sup>√x";
     } else {
         inverseBtn.classList.add("btn-secondary");
         inverseBtn.classList.remove("btn-primary");
@@ -83,6 +87,10 @@ function toggleInverseMode() {
         document.getElementById("cos-btn").innerHTML = "cos";
         document.getElementById("tan-btn").innerHTML = "tan";
         document.getElementById("ans-btn").innerHTML = "ANS";
+        document.getElementById("ln-btn").innerHTML = "ln";
+        document.getElementById("log-btn").innerHTML = "log";
+        document.getElementById("sqrt-btn").innerHTML = "√";
+        document.getElementById("xy-btn").innerHTML = "x<sup>y</sup>";
     }
 }
 
@@ -142,7 +150,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         console.log("convertedValue:", convertedValue)
         const result = eval(convertedValue);
-        console.log("result", result);
+        // console.log("result", result);
         currentValue = result.toString();
         return currentValue;
     }
@@ -152,7 +160,7 @@ document.addEventListener('DOMContentLoaded', function () {
         button.addEventListener('click', function () {
             const value = button.innerText;
 
-            // console.log("button value:", value)
+            console.log("button value:", value)
             try {
                 if (value == "AC") {
                     currentValue = "";
@@ -175,6 +183,18 @@ document.addEventListener('DOMContentLoaded', function () {
                     display.value = currentValue;
                 } else if (value == "xy") {
                     currentValue += `**`;
+                    display.value = currentValue;
+                } else if (value == "ex") {
+                    currentValue += `e**`;
+                    display.value = currentValue;
+                } else if (value == "10x") {
+                    currentValue += `10**`;
+                    display.value = currentValue;
+                } else if (value == "x2") {
+                    currentValue += `**2`;
+                    display.value = currentValue;
+                } else if (value == "y√x") {
+                    currentValue = `Math.pow(${currentValue}, 1/`;
                     display.value = currentValue;
                 } else if (value == "x!") {
                     currentValue += "!";
