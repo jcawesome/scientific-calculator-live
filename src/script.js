@@ -6,7 +6,6 @@ var angleUnit = "rad";
 function toggleRadDeg() {
     var radBtn = document.getElementById("rad-btn");
     var degBtn = document.getElementById("deg-btn");
-    var result;
 
     if (angleUnit == "rad") {
         angleUnit = "deg"; // update the button label
@@ -69,6 +68,7 @@ document.addEventListener('DOMContentLoaded', function () {
     function evaluateResult() {
         // console.log("currentValue:", currentValue)
         // console.log("ANS:", ANS)
+        
         const convertedValue = currentValue
             .replace("×", "*")
             .replace("÷", "/")
@@ -93,9 +93,16 @@ document.addEventListener('DOMContentLoaded', function () {
             .replace(/(\d+)EXP(\d+)/g, (match, base, exponent) => `${base} * 10**${exponent}`)
 
         // console.log("convertedValue:", convertedValue)
-
+        
         const result = eval(convertedValue);
-        currentValue = result.toString();
+        console.log("result",result);
+        var updResult = result;
+        if (angleUnit=="deg"){
+            updResult = result * (180 / Math.PI);
+        }
+        console.log("updResult",updResult);
+        currentValue = updResult.toString();
+        console.log("currentValue",currentValue);
         return currentValue;
     }
 

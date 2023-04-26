@@ -16,3 +16,16 @@ sup {
 .list-group-item {
   font-size: 14px;
 }
+
+.btn-group > .btn-secondary.active {
+  background-color: lightgray;
+  border-color: lightgray;
+  color: black; /* change the text color */
+  box-shadow: none; /* remove the box shadow */
+}
+
+.btn-group > .btn-secondary:not(.active) {
+  background-color: lightgray; /* change the background color of inactive buttons */
+  border-color: lightgray; /* change the border color of inactive buttons */
+  color: #C0C0C0; /* change the text color of inactive buttons */
+}
