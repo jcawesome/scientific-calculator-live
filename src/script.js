@@ -18,6 +18,54 @@ function toggleRadDeg() {
     }
 }
 
+function sinFunc(angle) {
+    if (angleUnit === "rad") {
+        return Math.sin(angle);
+    } else {
+        return Math.sin(angle * Math.PI / 180);
+    }
+}
+
+function cosFunc(angle) {
+    if (angleUnit === "rad") {
+        return Math.cos(angle);
+    } else {
+        return Math.cos(angle * Math.PI / 180);
+    }
+}
+
+function tanFunc(angle) {
+    if (angleUnit === "rad") {
+        return Math.tan(angle);
+    } else {
+        return Math.tan(angle * Math.PI / 180);
+    }
+}
+
+function arcsinFunc(angle) {
+    if (angleUnit === "rad") {
+        return Math.asin(angle);
+    } else {
+        return (Math.asin(angle) * 180) / Math.PI;
+    }
+}
+
+function arccosFunc(angle) {
+    if (angleUnit === "rad") {
+        return Math.acos(angle);
+    } else {
+        return (Math.acos(angle) * 180) / Math.PI;
+    }
+}
+
+function arctanFunc(angle) {
+    if (angleUnit === "rad") {
+        return Math.atan(angle);
+    } else {
+        return (Math.atan(angle) * 180) / Math.PI;
+    }
+}
+
 function toggleInverseMode() {
     inverseMode = !inverseMode;
     var inverseBtn = document.getElementById("inverse-btn");
@@ -68,19 +116,19 @@ document.addEventListener('DOMContentLoaded', function () {
     function evaluateResult() {
         // console.log("currentValue:", currentValue)
         // console.log("ANS:", ANS)
-        
+
         const convertedValue = currentValue
             .replace("×", "*")
             .replace("÷", "/")
             .replace("%", "*0.01")
             .replace(/\barcsin\b|sin/g, function (match) {
-                return (match === "sin") ? "Math.sin" : "Math.asin";
+                return (match === "sin") ? "sinFunc" : "arcsinFunc";
             })
             .replace(/\barccos\b|cos/g, function (match) {
-                return (match === "cos") ? "Math.cos" : "Math.acos";
+                return (match === "cos") ? "cosFunc" : "arccosFunc";
             })
             .replace(/\barctan\b|tan/g, function (match) {
-                return (match === "tan") ? "Math.tan" : "Math.atan";
+                return (match === "tan") ? "tanFunc" : "arctanFunc";
             })
             .replace("log", "Math.log10")
             .replace("ln", "Math.log")
@@ -92,17 +140,10 @@ document.addEventListener('DOMContentLoaded', function () {
             .replace(/(\d+)!/g, (match, num) => xFact(num))
             .replace(/(\d+)EXP(\d+)/g, (match, base, exponent) => `${base} * 10**${exponent}`)
 
-        // console.log("convertedValue:", convertedValue)
-        
+        console.log("convertedValue:", convertedValue)
         const result = eval(convertedValue);
-        console.log("result",result);
-        var updResult = result;
-        if (angleUnit=="deg"){
-            updResult = result * (180 / Math.PI);
-        }
-        console.log("updResult",updResult);
-        currentValue = updResult.toString();
-        console.log("currentValue",currentValue);
+        console.log("result", result);
+        currentValue = result.toString();
         return currentValue;
     }
 
