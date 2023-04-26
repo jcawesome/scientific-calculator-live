@@ -1,5 +1,23 @@
 var inverseMode = false;
 // console.log("inverseMode:", inverseMode);
+var angleUnit = "rad";
+
+
+function toggleRadDeg() {
+    var radBtn = document.getElementById("rad-btn");
+    var degBtn = document.getElementById("deg-btn");
+    var result;
+
+    if (angleUnit == "rad") {
+        angleUnit = "deg"; // update the button label
+        radBtn.classList.remove('active');
+        degBtn.classList.add('active');
+    } else {
+        angleUnit = "rad"; // update the button label
+        degBtn.classList.remove('active');
+        radBtn.classList.add('active');
+    }
+}
 
 function toggleInverseMode() {
     inverseMode = !inverseMode;
@@ -93,6 +111,8 @@ document.addEventListener('DOMContentLoaded', function () {
                     display.value = currentValue;
                 } else if (value == "Inv") {
                     toggleInverseMode();
+                } else if (value == "Rad" | value == "Deg") {
+                    toggleRadDeg();
                 } else if (value == "ANS") {
                     currentValue += "ANS";
                     display.value = currentValue;
