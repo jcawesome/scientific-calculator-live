@@ -3,27 +3,6 @@ var inverseMode = false;
 var angleUnit = "rad";
 var toggle = "123";
 
-// const hideBtns = document.querySelectorAll(".hideBtn");
-// const showBtns = document.querySelectorAll(".showBtn");
-// console.log("hideBtns",hideBtns);
-// console.log("showBtns",showBtns);
-
-// function toggleButtons() {
-//     if (window.innerWidth <= 576) {
-//       hideBtns.forEach(btn => btn.classList.remove("d-md-inline-block"));
-//       showBtns.forEach(btn => btn.classList.add("d-md-none"));
-//       toggleBtn.classList.add("d-inline-block");
-//     } else {
-//       hideBtns.forEach(btn => btn.classList.add("d-md-inline-block"));
-//       showBtns.forEach(btn => btn.classList.remove("d-md-none"));
-//       toggleBtn.classList.remove("d-inline-block");
-//     }
-//   }
-// toggleButtons();
-// window.addEventListener("resize", () => {
-//     toggleButtons();
-//   });
-
 function toggleRadDeg() {
     var radBtn = document.getElementById("rad-btn");
     var degBtn = document.getElementById("deg-btn");
@@ -202,7 +181,7 @@ document.addEventListener('DOMContentLoaded', function () {
         button.addEventListener('click', function () {
             const value = button.innerText;
 
-            console.log("button value:", value)
+            // console.log("button value:", value)
             try {
                 if (value == "AC") {
                     currentValue = "";
