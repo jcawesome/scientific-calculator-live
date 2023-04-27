@@ -29,3 +29,14 @@ sup {
   border-color: lightgray; /* change the border color of inactive buttons */
   color: #C0C0C0; /* change the text color of inactive buttons */
 }
+
+.btn-group > .btn-blue.active {
+  background-color: lightskyblue;
+  border-color: lightgray;
+  color: blue; /* change the text color */
+  box-shadow: none; /* remove the box shadow */
+}
+
+/* .hideBtn {
+  display: none;
+} */

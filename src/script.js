@@ -1,7 +1,28 @@
 var inverseMode = false;
 // console.log("inverseMode:", inverseMode);
 var angleUnit = "rad";
+var toggle = "123";
 
+// const hideBtns = document.querySelectorAll(".hideBtn");
+// const showBtns = document.querySelectorAll(".showBtn");
+// console.log("hideBtns",hideBtns);
+// console.log("showBtns",showBtns);
+
+// function toggleButtons() {
+//     if (window.innerWidth <= 576) {
+//       hideBtns.forEach(btn => btn.classList.remove("d-md-inline-block"));
+//       showBtns.forEach(btn => btn.classList.add("d-md-none"));
+//       toggleBtn.classList.add("d-inline-block");
+//     } else {
+//       hideBtns.forEach(btn => btn.classList.add("d-md-inline-block"));
+//       showBtns.forEach(btn => btn.classList.remove("d-md-none"));
+//       toggleBtn.classList.remove("d-inline-block");
+//     }
+//   }
+// toggleButtons();
+// window.addEventListener("resize", () => {
+//     toggleButtons();
+//   });
 
 function toggleRadDeg() {
     var radBtn = document.getElementById("rad-btn");
@@ -16,6 +37,27 @@ function toggleRadDeg() {
         degBtn.classList.remove('active');
         radBtn.classList.add('active');
     }
+}
+
+function toggleButton() {
+    var _123Btn = document.getElementById("123-btn");
+    var fxBtn = document.getElementById("fx-btn");
+    const hideBtns = document.querySelectorAll(".hideBtn");
+    const showBtns = document.querySelectorAll(".showBtn");
+    
+
+    if (toggle == "123") {
+        toggle = "fx"; // update the button label
+        _123Btn.classList.remove('active');
+        fxBtn.classList.add('active');
+    } else {
+        toggle = "123"; // update the button label
+        fxBtn.classList.remove('active');
+        _123Btn.classList.add('active');
+    }
+
+    hideBtns.forEach(btn => btn.classList.toggle("d-none"));
+    showBtns.forEach(btn => btn.classList.toggle("d-none"));
 }
 
 function sinFunc(angle) {
@@ -169,6 +211,8 @@ document.addEventListener('DOMContentLoaded', function () {
                     toggleInverseMode();
                 } else if (value == "Rad" | value == "Deg") {
                     toggleRadDeg();
+                } else if (value == "123" | value == "Fx") {
+                    toggleButton();
                 } else if (value == "ANS") {
                     currentValue += "ANS";
                     display.value = currentValue;
