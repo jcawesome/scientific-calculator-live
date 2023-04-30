@@ -138,7 +138,7 @@ document.addEventListener('DOMContentLoaded', function () {
     var history = document.getElementById("history");
 
 
-    let currentValue = ""
+    let currentValue = "0"
     let ANS = 0;
     let char = "";
 
@@ -169,9 +169,10 @@ document.addEventListener('DOMContentLoaded', function () {
             .replace(/(\d+)!/g, (match, num) => xFact(num))
             .replace(/(\d+)EXP(\d+)/g, (match, base, exponent) => `${base} * 10**${exponent}`)
 
-        console.log("convertedValue:", convertedValue)
+        
         const result = eval(convertedValue);
-        // console.log("result", result);
+        // console log for checking final expression and result of expression
+        console.log("convertedValue:", convertedValue, "=> result:", result)
         currentValue = result.toString();
         return currentValue;
     }
@@ -181,10 +182,18 @@ document.addEventListener('DOMContentLoaded', function () {
         button.addEventListener('click', function () {
             const value = button.innerText;
 
-            // console.log("button value:", value)
+            // console log for debugging what button is selected
+            console.log("button value:", value)
             try {
+                // setting default value for currentValue
+                if (value != "0" & currentValue==="0") {
+                    currentValue= '';
+                } else if (value == "0" & currentValue==="0") {
+                    currentValue= '0';
+                } 
+
                 if (value == "AC") {
-                    currentValue = "";
+                    currentValue = "0";
                     display.value = currentValue;
                 } else if (value == "Inv") {
                     toggleInverseMode();
@@ -220,7 +229,10 @@ document.addEventListener('DOMContentLoaded', function () {
                     currentValue = `Math.pow(${currentValue}, 1/`;
                     display.value = currentValue;
                 } else if (value == "x!") {
-                    currentValue += "!";
+                    if (currentValue==''){
+                        currentValue='0'
+                        currentValue += "!";
+                    }
                     display.value = currentValue;
                 } else if (value == "=" | value == "RND") {
                     if (value == "RND") {
@@ -232,8 +244,8 @@ document.addEventListener('DOMContentLoaded', function () {
                     display.value = currentValue
                     ANS = currentValue;
                     // console.log("ANS:", ANS)
-                    var histString = expression + " = " + ANS;
-                    addToHistory(histString)
+                    // var histString = expression + " = " + ANS;
+                    // addToHistory(histString)
                     // console.log("histString:", histString)
                 }
                 else {
