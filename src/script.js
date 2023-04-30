@@ -23,7 +23,7 @@ function toggleButton() {
     var fxBtn = document.getElementById("fx-btn");
     const hideBtns = document.querySelectorAll(".hideBtn");
     const showBtns = document.querySelectorAll(".showBtn");
-    
+
 
     if (toggle == "123") {
         toggle = "fx"; // update the button label
@@ -169,7 +169,7 @@ document.addEventListener('DOMContentLoaded', function () {
             .replace(/(\d+)!/g, (match, num) => xFact(num))
             .replace(/(\d+)EXP(\d+)/g, (match, base, exponent) => `${base} * 10**${exponent}`)
 
-        
+
         const result = eval(convertedValue);
         // console log for checking final expression and result of expression
         console.log("convertedValue:", convertedValue, "=> result:", result)
@@ -184,13 +184,15 @@ document.addEventListener('DOMContentLoaded', function () {
 
             // console log for debugging what button is selected
             console.log("button value:", value)
+            console.log("currentValue:", currentValue)
             try {
                 // setting default value for currentValue
-                if (value != "0" & currentValue==="0") {
-                    currentValue= '';
-                } else if (value == "0" & currentValue==="0") {
-                    currentValue= '0';
-                } 
+                if (value != "0" & currentValue === "0") {
+                    currentValue = '';
+                } else if (value == "0" & currentValue === "0") {
+                    currentValue = '0';
+                    display.value = currentValue;
+                }
 
                 if (value == "AC") {
                     currentValue = "0";
@@ -214,6 +216,9 @@ document.addEventListener('DOMContentLoaded', function () {
                     currentValue += `arctan`;
                     display.value = currentValue;
                 } else if (value == "xy") {
+                    if (currentValue == '') {
+                        currentValue = '0'
+                    }
                     currentValue += `**`;
                     display.value = currentValue;
                 } else if (value == "ex") {
@@ -223,30 +228,54 @@ document.addEventListener('DOMContentLoaded', function () {
                     currentValue += `10**`;
                     display.value = currentValue;
                 } else if (value == "x2") {
-                    currentValue += `**2`;
+                    if (currentValue == '') {
+                        currentValue = '0'
+                        currentValue += `**2`;
+                    } else{
+                        currentValue += `**2`;
+                    }
                     display.value = currentValue;
                 } else if (value == "y√x") {
+                    if (currentValue == '') {
+                        currentValue = '0'
+                    } 
                     currentValue = `Math.pow(${currentValue}, 1/`;
                     display.value = currentValue;
-                } else if (value == "x!") {
-                    if (currentValue==''){
-                        currentValue='0'
-                        currentValue += "!";
+                } else if (value == "EXP") {
+                    if (currentValue == '') {
+                        currentValue = '0'
+                    } 
+                    currentValue += value;
+                    display.value = currentValue;
+                } else if (value == "%") {
+                    if (currentValue == '') {
+                        currentValue = '0'
                     }
+                    currentValue += value;
+                    display.value = currentValue;
+                } else if (value == "x!") {
+                    if (currentValue == '') {
+                        currentValue = '0'
+                    } 
+                    currentValue += "!";
                     display.value = currentValue;
                 } else if (value == "=" | value == "RND") {
                     if (value == "RND") {
                         currentValue += value;
                     }
-                    expression = currentValue;
-                    // console.log("expression:", expression)
-                    evaluateResult();
-                    display.value = currentValue
-                    ANS = currentValue;
-                    // console.log("ANS:", ANS)
-                    // var histString = expression + " = " + ANS;
-                    // addToHistory(histString)
-                    // console.log("histString:", histString)
+                    if (currentValue == "" | currentValue == "0") {
+                        display.value = 0
+                    } else {
+                        // expression = currentValue;
+                        // console.log("expression:", expression)
+                        evaluateResult();
+                        display.value = currentValue
+                        ANS = currentValue;
+                        // console.log("ANS:", ANS)
+                        // var histString = expression + " = " + ANS;
+                        // addToHistory(histString)
+                        // console.log("histString:", histString)
+                    }
                 }
                 else {
 
