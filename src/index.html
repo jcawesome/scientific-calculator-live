@@ -11,7 +11,7 @@
 
 <body>
 
-    <div class="container">
+    <div class="container px-4">
         <div class="h1 text-center mt-3 mb-5">Scientific Calculator</div>
         <!--Fix History Button Later on-->
         <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#historyModal">
@@ -54,55 +54,110 @@
             </div>
         </div>
         <!--Row 1-->
-        <div class="row gx-1 justify-content-center seven-cols">
-
-            <div class="col-6 col-md-2 btn-group hideBtn d-none d-md-flex flex-row" role="group"
-                aria-label="Button group with separator">
-                <button id="rad-btn" type="button" class="btn btn-secondary w-100 mt-2 border active">Rad</button>
-                <div class="btn-group" role="group">
-                    <div class="separator"></div>
+        <div class="row gx-2 justify-content-center seven-cols">
+            <div class="col-6 col-md-2 hideBtn d-none d-md-inline">
+                <div class="col-12 btn-group flex-row" role="group"
+                    aria-label="Button group with separator">
+                    <button id="rad-btn" type="button" class="btn btn-secondary w-100 mt-2 border active">Rad</button>
+                    <div class="btn-group" role="group">
+                        <div class="separator"></div>
+                    </div>
+                    <button id="deg-btn" type="button" class="btn btn-secondary w-100 mt-2 border">Deg</button>
                 </div>
-                <button id="deg-btn" type="button" class="btn btn-secondary w-100 mt-2 border">Deg</button>
             </div>
-            <button type="button" class="col-3 col-md-1 btn btn-secondary mt-2 border hideBtn d-none d-md-inline">
-                x!
-            </button>
-            <button type="button" class="col-3 col-md-1 btn btn-secondary mt-2 border showBtn">
-                (
-            </button>
-            <button type="button" class="col-3 col-md-1 btn btn-secondary mt-2 border showBtn">
-                )
-            </button>
-            <button type="button" class="col-3 col-md-1 btn btn-secondary mt-2 border showBtn">
-                %
-            </button>
-            <button type="button" class="col-3 col-md-1 btn btn-secondary mt-2 border showBtn">
-                AC
-            </button>
-            <button type="button" id="inverse-btn"
-                class="col-3 col-md-1 btn btn-secondary mt-2 border hideBtn d-none d-md-inline">
+            <div class="col-3 col-md-1 hideBtn d-none d-md-inline">
+                <button type="button" class="col-12 btn btn-secondary mt-2 border ">
+                    x!
+                </button>
+            </div>
+            <div class="col-3 col-md-1 showBtn">
+                <button type="button" class="col-12  btn btn-secondary mt-2 border ">
+                    (
+                </button>
+            </div>
+            <div class="col-3 col-md-1 showBtn">
+                <button type="button" class="col-12  btn btn-secondary mt-2 border ">
+                    )
+                </button>
+            </div>
+            <div class="col-3 col-md-1 showBtn">
+                <button type="button" class="col-12  btn btn-secondary mt-2 border ">
+                    %
+                </button>
+            </div>
+            <div class="col-3 col-md-1 showBtn">
+                <button type="button" class="col-12  btn btn-secondary mt-2 border ">
+                    AC
+                </button>
+            </div>
+            <div class="col-3 col-md-1 hideBtn d-none d-md-inline">
+                <button type="button" id="inverse-btn"
+                class="col-12 btn btn-secondary mt-2 border ">
                 Inv
             </button>
-            <button type="button" id="sin-btn"
-                class="col-3 col-md-1 btn btn-secondary mt-2 border hideBtn d-none d-md-inline">
+            </div>
+            <div class="col-3 col-md-1">
+                <button type="button" id="sin-btn"
+                class="col-12 btn btn-secondary mt-2 border hideBtn d-none d-md-inline">
                 sin
             </button>
-            <button type="button" id="ln-btn"
-                class="col-3 col-md-1 btn btn-secondary mt-2 border hideBtn d-none d-md-inline">
+            </div>
+            <div class="col-3 col-md-1">
+                <button type="button" id="ln-btn"
+                class="col-12 btn btn-secondary mt-2 border hideBtn d-none d-md-inline">
                 ln
             </button>
-            <button type="button" class="col-3 col-md-1 btn btn-light mt-2 border showBtn">
-                7
-            </button>
-            <button type="button" class="col-3 col-md-1 btn btn-light mt-2 border showBtn">
-                8
-            </button>
-            <button type="button" class="col-3 col-md-1 btn btn-light mt-2 border showBtn">
-                9
-            </button>
-            <button type="button" class="col-3 col-md-1 btn btn-secondary mt-2 border showBtn">
-                ÷
-            </button>
+            </div>
+            <div class="col-3 col-md-1">
+                <button type="button" class="col-12 btn btn-light mt-2 border showBtn">
+                    7
+                </button>
+            </div>
+            <div class="col-3 col-md-1">
+                <button type="button" class="col-12 btn btn-light mt-2 border showBtn">
+                    8
+                </button>
+            </div>
+            <div class="col-3 col-md-1">
+                <button type="button" class="col-12 btn btn-light mt-2 border showBtn">
+                    9
+                </button>
+            </div>
+            <div class="col-3 col-md-1">
+                <button type="button" class="col-12 btn btn-secondary mt-2 border showBtn">
+                    ÷
+                </button>
+            </div>
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            </div>
+            <div class="col-3 col-md-1">
+
+            </div>
+            <div class="col-3 col-md-1">
+
+            </div>
+            <div class="col-3 col-md-1">
+
+            </div>
+            <div class="col-3 col-md-1">
+
+            </div>
+            <div class="col-3 col-md-1">
+
+            </div>
+            <div class="col-3 col-md-1">
+
+            </div>
             <button type="button" class="col-3 col-md-1 btn btn-secondary mt-2 border hideBtn d-none d-md-inline">
                 π
             </button>
@@ -126,6 +181,26 @@
             <button type="button" class="col-3 col-md-1 btn btn-secondary mt-2 border showBtn">
                 ×
             </button>
+
+            </div>
+            <div class="col-3 col-md-1">
+
+            </div>
+            <div class="col-3 col-md-1">
+
+            </div>
+            <div class="col-3 col-md-1">
+
+            </div>
+            <div class="col-3 col-md-1">
+
+            </div>
+            <div class="col-3 col-md-1">
+
+            </div>
+            <div class="col-3 col-md-1">
+
+            </div>
             <button type="button" class="col-3 col-md-1 btn btn-secondary mt-2 border hideBtn d-none d-md-inline">
                 e
             </button>
@@ -149,6 +224,26 @@
             <button type="button" class="col-3 col-md-1 btn btn-secondary mt-2 border showBtn">
                 -
             </button>
+
+            </div>
+            <div class="col-3 col-md-1">
+
+            </div>
+            <div class="col-3 col-md-1">
+
+            </div>
+            <div class="col-3 col-md-1">
+
+            </div>
+            <div class="col-3 col-md-1">
+
+            </div>
+            <div class="col-3 col-md-1">
+
+            </div>
+            <div class="col-3 col-md-1">
+
+            </div>
             <button type="button" id="ans-btn"
                 class="col-3 col-md-1 btn btn-secondary mt-2 border hideBtn d-none d-md-inline">
                 ANS
