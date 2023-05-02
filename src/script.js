@@ -231,20 +231,20 @@ document.addEventListener('DOMContentLoaded', function () {
                     if (currentValue == '') {
                         currentValue = '0'
                         currentValue += `**2`;
-                    } else{
+                    } else {
                         currentValue += `**2`;
                     }
                     display.value = currentValue;
                 } else if (value == "y√x") {
                     if (currentValue == '') {
                         currentValue = '0'
-                    } 
+                    }
                     currentValue = `Math.pow(${currentValue}, 1/`;
                     display.value = currentValue;
                 } else if (value == "EXP") {
                     if (currentValue == '') {
                         currentValue = '0'
-                    } 
+                    }
                     currentValue += value;
                     display.value = currentValue;
                 } else if (value == "%") {
@@ -256,14 +256,14 @@ document.addEventListener('DOMContentLoaded', function () {
                 } else if (value == "x!") {
                     if (currentValue == '') {
                         currentValue = '0'
-                    } 
+                    }
                     currentValue += "!";
                     display.value = currentValue;
                 } else if (value == "=" | value == "RND") {
                     if (value == "RND") {
                         currentValue += value;
                     }
-                    if (currentValue == "" | currentValue == "0") {
+                    if (currentValue == "" | currentValue == "0" | currentValue == "√") {
                         display.value = 0
                     } else {
                         // expression = currentValue;
